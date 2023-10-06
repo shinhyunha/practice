@@ -1,0 +1,48 @@
+# name: Release Drafter
+# on:
+#   pull_request:
+#     types: [closed]
+#     branches:
+#       - main    # main에 푸쉬됐을때 실행
+# jobs:
+#   update_release_draft:     # 작업 제목
+#     permissions:
+#       contents: read
+#       pull-requests: write
+#     runs-on: ubuntu-latest  # 구동 환경
+#     steps:
+#       - uses: release-drafter/release-drafter@v5    # 가져다 쓸 모듈
+#         with:
+#           commitish: main
+#           config-name: release-drafter-config.yaml  # config 파일 이름
+#         env:
+#           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}   # 깃허브 토큰, 자동으로 생성
+name: github action tag release 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup-build-deploy:
+    name: Setup, Build, and Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: write
+      id-token: write 
+
+    steps:
+    - name: Bump version and push tag
+      id: tag_version
+      uses: mathieudutour/github-tag-action@v6.1 
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }} 
+
+    - name: Create a GitHub release
+      uses: ncipollo/release-action@v1 
+      with:
+        tag: ${{ steps.tag_version.outputs.new_tag }}
+        name: Release ${{ steps.tag_version.outputs.new_tag }}
+        body: ${{ steps.tag_version.outputs.changelog }}
