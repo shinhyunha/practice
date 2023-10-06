@@ -1,0 +1,14 @@
+name: Release Drafter
+on:
+  push:   
+    branches:
+      - main    # main에 푸쉬됐을때 실행
+jobs:
+  draft-release:            # 작업 제목
+    runs-on: ubuntu-latest  # 구동 환경
+    steps:
+      - uses: release-drafter/release-drafter@v5    # 가져다 쓸 모듈
+        with:
+          config-name: draft-config.yaml            # config 파일 이름
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}   # 깃허브 토큰, 자동으로 생성
