@@ -28,3 +28,4 @@ template: |
   ## 변경사항
 
   $CHANGES
+draft: false
