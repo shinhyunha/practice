@@ -1,6 +1,6 @@
 name: Release Drafter
 on:
-  push:
+  pull_request:
     branches:
       - main    # main에 푸쉬됐을때 실행
 jobs:
