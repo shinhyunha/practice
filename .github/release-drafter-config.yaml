@@ -1,5 +1,5 @@
-name-template: 'v$RESOLVED_VERSION'
-tag-template: 'v$RESOLVED_VERSION'
+name-template: 'v$RESOLVED_VERSION'   # version-resolver에 정의한 Labels에 따라 버전을 올린다.
+tag-template: 'v$RESOLVED_VERSION'    # version-resolver에 정의한 Labels에 따라 버전을 올린다.
 categories:
   - title: 'Features'
     labels:
@@ -13,19 +13,16 @@ categories:
     label: 'documentation'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
-version-resolver:
+version-resolver:   # major, minor을 정의하고 그 외에는 patch 버전을 올린다.
   major:
     labels:
       - 'major'
   minor:
     labels:
       - 'minor'
-  patch:
-    labels:
-      - 'patch'
   default: patch
-template: |
-  ## 변경사항
+template: |   # 릴리즈 노트 형식을 정의한다.
+  ## Changes
 
   $CHANGES
 draft: false
