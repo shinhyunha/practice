@@ -1,7 +1,7 @@
-name-template: "v$RESOLVED_VERSION"   # version-resolver에 정의한 Labels에 따라 버전을 올린다.
-tag-template: "v$RESOLVED_VERSION"    # version-resolver에 정의한 Labels에 따라 버전을 올린다.
+name-template: 'v$RESOLVED_VERSION'   # version-resolver에 정의한 Labels에 따라 버전을 올린다.
+tag-template: 'v$RESOLVED_VERSION'    # version-resolver에 정의한 Labels에 따라 버전을 올린다.
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
-changes-title-escapes: '\<*_&'
+change-title-escapes: '\<*_&'
 version-resolver:   # major, minor, patch를 정의하고 그 외에는 patch 버전을 올린다.
   major:
     labels:
