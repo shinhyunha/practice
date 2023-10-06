@@ -25,4 +25,3 @@ template: |   # 릴리즈 노트 형식을 정의한다.
   ## Changes
 
   $CHANGES
-draft: false
