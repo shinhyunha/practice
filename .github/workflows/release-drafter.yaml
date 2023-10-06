@@ -4,11 +4,14 @@ on:
     branches:
       - main    # main에 푸쉬됐을때 실행
 jobs:
-  update_release_draft:            # 작업 제목
+  update_release_draft:     # 작업 제목
+    permissions:
+        contents: write
+        pull-requests: write
     runs-on: ubuntu-latest  # 구동 환경
     steps:
       - uses: release-drafter/release-drafter@v5    # 가져다 쓸 모듈
         with:
-          config-name: release-drafter-config.yaml            # config 파일 이름
+          config-name: release-drafter-config.yaml  # config 파일 이름
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}   # 깃허브 토큰, 자동으로 생성
