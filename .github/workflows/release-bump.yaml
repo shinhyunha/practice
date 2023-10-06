@@ -4,6 +4,7 @@ on:
   push:     
     branches:
       - main      # main에 Push할 때 작동함
+      - dev       # dev에 Push할 때 작동함
 
 jobs:
   setup-build-deploy:
