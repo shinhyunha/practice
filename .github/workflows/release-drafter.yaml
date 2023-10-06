@@ -6,6 +6,9 @@ on:
       - main    # main에 푸쉬됐을때 실행
 jobs:
   update_release_draft:     # 작업 제목
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-latest  # 구동 환경
     steps:
       - uses: release-drafter/release-drafter@v5    # 가져다 쓸 모듈
