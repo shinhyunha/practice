@@ -1,18 +1,14 @@
 name: Release Drafter
 on:
   push:
-    # 해당 브랜치에 푸쉬될 때 action 이 실행된다.
     branches:
-      - main
+      - main # main branch로 push될 때 아래 action이 실행됩니다.
 jobs:
-  update_release_draft:
-    runs-on: ubuntu-latest
+  update_release_draft:     # 작업 제목
+    runs-on: ubuntu-latest  # 구동 환경
     steps:
-      - uses: release-drafter/release-drafter@v5
-        # (Optional)
-        # workflow 에서 여러 구성이 필요할 때 config-name 에 오버라이드 해줍니다.
-        # 반드시 .github/ 에 위치해야합니다.
+      - uses: release-drafter/release-drafter@v5      # 사용할 모듈
         with:
-          config-name: release-drafter-config.yaml
+          config-name: release-drafter-config.yaml    
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # 환경변수 (토큰은 자동 생성됨))
