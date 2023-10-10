@@ -5,7 +5,7 @@ on:
       - main      # main에 Push할 때 작동함
       - dev       # dev에 Push할 때 작동함
 jobs:
-  setup-build-deploy:
+  release-version:
     runs-on: ubuntu-latest            # ubuntu 환경에서 작동함
     permissions:
       packages: write
