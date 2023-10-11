@@ -80,3 +80,10 @@ a.setData(123,6)
 print(a.plus())
 
 print(a.minus())
+
+g = 1
+
+while g < 5 :
+    print(g)
+    g += 1
+
