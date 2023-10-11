@@ -3,7 +3,7 @@ on:
   push:     
     branches:     # 버전관리에 사용할 브랜치 작성
       - main      # main에 Push할 때 작동함
-      - dev       # dev에 Push할 때 작동함
+      # - dev       # dev에 Push할 때 작동함
 jobs:
   release-version:
     runs-on: ubuntu-latest            # ubuntu 환경에서 작동함
