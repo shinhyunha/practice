@@ -64,3 +64,19 @@ def plus(a, b):
 
 
 print(plus(10,2))
+
+class Test:
+    def setData(self, a, b):
+        self.a = a
+        self.b = b
+    def plus(self):
+        return self.a + self.b
+    def minus(self):
+        return self.a - self.b
+    
+a = Test()
+
+a.setData(123,6)
+print(a.plus())
+
+print(a.minus())
